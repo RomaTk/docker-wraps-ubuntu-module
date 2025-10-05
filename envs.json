@@ -1,0 +1,153 @@
+{
+    "wraps": {
+        "ubuntu-get-some-version": {
+            "build": {
+                "run": {
+                    "before": [
+                        "source \"./env-scripts/ubuntu/get-some-version/load.sh\" && main \"\" \"dockers/ubuntu\""
+                    ]
+                }
+            },
+            "clean": [
+                "source \"./env-scripts/ubuntu/get-some-version/clean.sh\" && main \"dockers/ubuntu\""
+            ]
+        },
+        "ubuntu-with-latest-packages": {
+            "basedOn": {
+                "name": "ubuntu-get-some-version",
+                "tag": "latest",
+                "precreate": true,
+                "asAbstract": true
+            },
+            "dockerfile": "./dockers/ubuntu/update-packages/Dockerfile",
+            "build": {
+                "options": [
+                    "--build-arg BASED_ON=\"$(./envs.sh get name image ubuntu-get-some-version)\""
+                ],
+                "context": "./dockers/ubuntu/update-packages",
+                "run": {
+                    "after": [
+                        "source \"./env-scripts/not-by-wrap-name/backups/make.sh\" && main \"$(./envs.sh get name image ubuntu-with-latest-packages)\""
+                    ]
+                }
+            },
+            "clean": [
+                "source \"./env-scripts/not-by-wrap-name/backups/clean.sh\" && main \"$(./envs.sh get name image ubuntu-with-latest-packages)\""
+            ]
+        },
+        "ubuntu-wget-install": {
+            "basedOn": {
+                "name": "ubuntu-with-latest-packages",
+                "tag": "latest",
+                "precreate": true
+            },
+            "dockerfile": "./dockers/ubuntu/wget-install/Dockerfile",
+            "build": {
+                "context": "./dockers/ubuntu/wget-install",
+                "run": {
+                    "after": [
+                        "source \"./env-scripts/not-by-wrap-name/backups/make.sh\" && main \"$(./envs.sh get name image ubuntu-wget-install)\""
+                    ]
+                }
+            },
+            "clean": [
+                "source \"./env-scripts/not-by-wrap-name/backups/clean.sh\" && main \"$(./envs.sh get name image ubuntu-wget-install)\""
+            ]
+        },
+        "ubuntu-jq-install": {
+            "basedOn": {
+                "name": "ubuntu-with-latest-packages",
+                "tag": "latest",
+                "precreate": true
+            },
+            "dockerfile": "./dockers/ubuntu/jq-install/Dockerfile",
+            "build": {
+                "context": "./dockers/ubuntu/jq-install",
+                "run": {
+                    "after": [
+                        "source \"./env-scripts/not-by-wrap-name/backups/make.sh\" && main \"$(./envs.sh get name image ubuntu-jq-install)\""
+                    ]
+                }
+            },
+            "clean": [
+                "source \"./env-scripts/not-by-wrap-name/backups/clean.sh\" && main \"$(./envs.sh get name image ubuntu-jq-install)\""
+            ]
+        },
+        "ubuntu-gnupg-install": {
+            "basedOn": {
+                "name": "ubuntu-with-latest-packages",
+                "tag": "latest",
+                "precreate": true
+            },
+            "dockerfile": "./dockers/ubuntu/gnupg-install/Dockerfile",
+            "build": {
+                "context": "./dockers/ubuntu/gnupg-install",
+                "run": {
+                    "after": [
+                        "source \"./env-scripts/not-by-wrap-name/backups/make.sh\" && main \"$(./envs.sh get name image ubuntu-gnupg-install)\""
+                    ]
+                }
+            },
+            "clean": [
+                "source \"./env-scripts/not-by-wrap-name/backups/clean.sh\" && main \"$(./envs.sh get name image ubuntu-gnupg-install)\""
+            ]
+        },
+        "ubuntu-iptables-install": {
+            "basedOn": {
+                "name": "ubuntu-with-latest-packages",
+                "tag": "latest",
+                "precreate": true
+            },
+            "dockerfile": "./dockers/ubuntu/iptables-install/Dockerfile",
+            "build": {
+                "context": "./dockers/ubuntu/iptables-install",
+                "run": {
+                    "after": [
+                        "source \"./env-scripts/not-by-wrap-name/backups/make.sh\" && main \"$(./envs.sh get name image ubuntu-iptables-install)\""
+                    ]
+                }
+            },
+            "clean": [
+                "source \"./env-scripts/not-by-wrap-name/backups/clean.sh\" && main \"$(./envs.sh get name image ubuntu-iptables-install)\""
+            ]
+        },
+        "ubuntu-ca-certificates-install": {
+            "basedOn": {
+                "name": "ubuntu-with-latest-packages",
+                "tag": "latest",
+                "precreate": true
+            },
+            "dockerfile": "./dockers/ubuntu/ca-certificates-install/Dockerfile",
+            "build": {
+                "context": "./dockers/ubuntu/ca-certificates-install",
+                "run": {
+                    "after": [
+                        "source \"./env-scripts/not-by-wrap-name/backups/make.sh\" && main \"$(./envs.sh get name image ubuntu-ca-certificates-install)\""
+                    ]
+                }
+            },
+            "clean": [
+                "source \"./env-scripts/not-by-wrap-name/backups/clean.sh\" && main \"$(./envs.sh get name image ubuntu-ca-certificates-install)\""
+            ]
+        },
+        "ubuntu-curl-install": {
+            "basedOn": {
+                "name": "ubuntu-with-latest-packages",
+                "tag": "latest",
+                "precreate": true
+            },
+            "dockerfile": "./dockers/ubuntu/curl-install/Dockerfile",
+            "build": {
+                "context": "./dockers/ubuntu/curl-install",
+                "run": {
+                    "after": [
+                        "source \"./env-scripts/not-by-wrap-name/backups/make.sh\" && main \"$(./envs.sh get name image ubuntu-curl-install)\""
+                    ]
+                }
+            },
+            "clean": [
+                "source \"./env-scripts/not-by-wrap-name/backups/clean.sh\" && main \"$(./envs.sh get name image ubuntu-curl-install)\""
+            ]
+        }
+    }
+}
