@@ -19,7 +19,7 @@ function main() {
 
     ln -sf "../$current_dir/envs.json" "../../env-jsons/ubuntu.json"
     [ $? -ne 0 ] && exit 1
-    
+
     mktemp_file=$(mktemp)
     [ $? -ne 0 ] && exit 1
 
