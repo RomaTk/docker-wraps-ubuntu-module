@@ -148,6 +148,17 @@
             "clean": [
                 "source \"./env-scripts/not-by-wrap-name/backups/clean.sh\" && main \"$(./envs.sh get name image ubuntu-curl-install)\""
             ]
+        },
+        "ubuntu-user-work": {
+            "basedOn": {
+                "name": "ubuntu-with-latest-packages",
+                "tag": "latest",
+                "precreate": true
+            },
+            "dockerfile": "./dockers/ubuntu/user-work/Dockerfile",
+            "build": {
+                "context": "./dockers/ubuntu/user-work"
+            }
         }
     }
 }
