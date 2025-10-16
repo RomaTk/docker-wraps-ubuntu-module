@@ -11,13 +11,13 @@ function mainInteractive {
     echo "Creating user: $username"
     echo "Please enter password:"
     read -s password
-    echo "User $username created with the provided password."
 
     last_action=$(main "$username" "$password")
     if [ $? -ne 0 ]; then
         echo "Error within main: $last_action" >&2
         exit 1
     fi
+    echo "User $username created with the provided password."
 
     exit 0
 }
