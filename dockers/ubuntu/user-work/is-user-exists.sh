@@ -57,7 +57,7 @@ function mainWithoutFlock {
         exit 1
     fi
 
-    is_user_exists=$(id "$username" 2>&1)
+    is_user_exists=$(LANG=C id "$username" 2>&1)
     exit_code=$?
 
     if echo "$is_user_exists" | grep -q "no such user"; then
