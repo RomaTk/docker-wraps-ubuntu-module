@@ -15,6 +15,7 @@ function mainInteractive {
         exit 1
     fi
 
+    echo "$last_action"
     exit 0
 }
 
