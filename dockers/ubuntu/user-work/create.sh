@@ -41,10 +41,7 @@ function main {
     exec {fd}> "$dir/flock-file.lock"
     flock -x "$fd"
 
-    output=$(
-        source \"$current_file\" && mainWithoutFlock \"$username\" \"$password\"
-        exit \$?
-    )
+    output=$( source "$current_file" && mainWithoutFlock "$username" "$password" )
     exit_code=$?
 
     exec {fd}>&-
