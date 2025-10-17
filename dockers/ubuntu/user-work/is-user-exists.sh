@@ -32,7 +32,7 @@ function main {
         exit 1
     fi
 
-    output=$(flock -x "$dir/flock-file.lock" -c "
+    output=$(flock -s "$dir/flock-file.lock" -c "
         bash -c '
             source \"$current_file\" && mainWithoutFlock \"$username\"
             exit \$?
