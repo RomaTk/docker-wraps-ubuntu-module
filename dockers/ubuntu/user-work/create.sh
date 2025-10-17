@@ -29,6 +29,8 @@ function main {
     local current_file="${BASH_SOURCE[0]}"
     local output
     local dir
+    local exit_code
+    local fd
 
     dir=$(dirname "$current_file")
     if [ $? -ne 0 ]; then
@@ -36,12 +38,18 @@ function main {
         exit 1
     fi
 
-    output=$(flock -x "$dir/flock-file.lock" -c "
-        bash -c '
-            source \"$current_file\" && mainWithoutFlock \"$username\" \"$password\"
-            exit \$?
-        '")
-    if [ $? -ne 0 ]; then
+    exec {fd}> "$dir/flock-file.lock"
+    flock -x "$fd"
+
+    output=$(
+        source \"$current_file\" && mainWithoutFlock \"$username\" \"$password\"
+        exit \$?
+    )
+    exit_code=$?
+
+    exec {fd}>&-
+
+    if [ $exit_code -ne 0 ]; then
         echo "Problem occurred within mainWithoutFlock: $output" >&2
         exit 1
     fi
