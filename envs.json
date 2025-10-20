@@ -54,6 +54,25 @@
                 "source \"./env-scripts/not-by-wrap-name/backups/clean.sh\" && main \"$(./envs.sh get name image ubuntu-wget-install)\""
             ]
         },
+        "ubuntu-expect-install": {
+            "basedOn": {
+                "name": "ubuntu-with-latest-packages",
+                "tag": "latest",
+                "precreate": true
+            },
+            "dockerfile": "./dockers/ubuntu/expect-install/Dockerfile",
+            "build": {
+                "context": "./dockers/ubuntu/expect-install",
+                "run": {
+                    "after": [
+                        "source \"./env-scripts/not-by-wrap-name/backups/make.sh\" && main \"$(./envs.sh get name image ubuntu-expect-install)\""
+                    ]
+                }
+            },
+            "clean": [
+                "source \"./env-scripts/not-by-wrap-name/backups/clean.sh\" && main \"$(./envs.sh get name image ubuntu-expect-install)\""
+            ]
+        },
         "ubuntu-jq-install": {
             "basedOn": {
                 "name": "ubuntu-with-latest-packages",
