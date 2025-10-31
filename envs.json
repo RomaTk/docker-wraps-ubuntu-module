@@ -4,12 +4,12 @@
             "build": {
                 "run": {
                     "before": [
-                        "source \"./env-scripts/ubuntu/get-some-version/load.sh\" && main \"\" \"dockers/ubuntu\""
+                        "(source \"./env-scripts/ubuntu/get-some-version/load.sh\" && main \"\" \"dockers/ubuntu\")"
                     ]
                 }
             },
             "clean": [
-                "source \"./env-scripts/ubuntu/get-some-version/clean.sh\" && main \"dockers/ubuntu\""
+                "(source \"./env-scripts/ubuntu/get-some-version/clean.sh\" && main \"dockers/ubuntu\")"
             ]
         },
         "ubuntu-with-latest-packages": {
@@ -27,12 +27,12 @@
                 "context": "./dockers/ubuntu/update-packages",
                 "run": {
                     "after": [
-                        "source \"./env-scripts/not-by-wrap-name/backups/make.sh\" && main \"$(./envs.sh get name image ubuntu-with-latest-packages)\""
+                        "(source \"./env-scripts/not-by-wrap-name/backups/make.sh\" && main \"$(./envs.sh get name image ubuntu-with-latest-packages)\")"
                     ]
                 }
             },
             "clean": [
-                "source \"./env-scripts/not-by-wrap-name/backups/clean.sh\" && main \"$(./envs.sh get name image ubuntu-with-latest-packages)\""
+                "(source \"./env-scripts/not-by-wrap-name/backups/clean.sh\" && main \"$(./envs.sh get name image ubuntu-with-latest-packages)\")"
             ]
         },
         "ubuntu-wget-install": {
@@ -46,12 +46,12 @@
                 "context": "./dockers/ubuntu/wget-install",
                 "run": {
                     "after": [
-                        "source \"./env-scripts/not-by-wrap-name/backups/make.sh\" && main \"$(./envs.sh get name image ubuntu-wget-install)\""
+                        "(source \"./env-scripts/not-by-wrap-name/backups/make.sh\" && main \"$(./envs.sh get name image ubuntu-wget-install)\")"
                     ]
                 }
             },
             "clean": [
-                "source \"./env-scripts/not-by-wrap-name/backups/clean.sh\" && main \"$(./envs.sh get name image ubuntu-wget-install)\""
+                "(source \"./env-scripts/not-by-wrap-name/backups/clean.sh\" && main \"$(./envs.sh get name image ubuntu-wget-install)\")"
             ]
         },
         "ubuntu-expect-install": {
@@ -65,12 +65,12 @@
                 "context": "./dockers/ubuntu/expect-install",
                 "run": {
                     "after": [
-                        "source \"./env-scripts/not-by-wrap-name/backups/make.sh\" && main \"$(./envs.sh get name image ubuntu-expect-install)\""
+                        "(source \"./env-scripts/not-by-wrap-name/backups/make.sh\" && main \"$(./envs.sh get name image ubuntu-expect-install)\")"
                     ]
                 }
             },
             "clean": [
-                "source \"./env-scripts/not-by-wrap-name/backups/clean.sh\" && main \"$(./envs.sh get name image ubuntu-expect-install)\""
+                "(source \"./env-scripts/not-by-wrap-name/backups/clean.sh\" && main \"$(./envs.sh get name image ubuntu-expect-install)\")"
             ]
         },
         "ubuntu-jq-install": {
@@ -84,12 +84,12 @@
                 "context": "./dockers/ubuntu/jq-install",
                 "run": {
                     "after": [
-                        "source \"./env-scripts/not-by-wrap-name/backups/make.sh\" && main \"$(./envs.sh get name image ubuntu-jq-install)\""
+                        "(source \"./env-scripts/not-by-wrap-name/backups/make.sh\" && main \"$(./envs.sh get name image ubuntu-jq-install)\")"
                     ]
                 }
             },
             "clean": [
-                "source \"./env-scripts/not-by-wrap-name/backups/clean.sh\" && main \"$(./envs.sh get name image ubuntu-jq-install)\""
+                "(source \"./env-scripts/not-by-wrap-name/backups/clean.sh\" && main \"$(./envs.sh get name image ubuntu-jq-install)\")"
             ]
         },
         "ubuntu-gnupg-install": {
@@ -103,12 +103,12 @@
                 "context": "./dockers/ubuntu/gnupg-install",
                 "run": {
                     "after": [
-                        "source \"./env-scripts/not-by-wrap-name/backups/make.sh\" && main \"$(./envs.sh get name image ubuntu-gnupg-install)\""
+                        "(source \"./env-scripts/not-by-wrap-name/backups/make.sh\" && main \"$(./envs.sh get name image ubuntu-gnupg-install)\")"
                     ]
                 }
             },
             "clean": [
-                "source \"./env-scripts/not-by-wrap-name/backups/clean.sh\" && main \"$(./envs.sh get name image ubuntu-gnupg-install)\""
+                "(source \"./env-scripts/not-by-wrap-name/backups/clean.sh\" && main \"$(./envs.sh get name image ubuntu-gnupg-install)\")"
             ]
         },
         "ubuntu-iproute2-install": {
@@ -122,12 +122,12 @@
                 "context": "./dockers/ubuntu/iproute2-install",
                 "run": {
                     "after": [
-                        "source \"./env-scripts/not-by-wrap-name/backups/make.sh\" && main \"$(./envs.sh get name image ubuntu-iproute2-install)\""
+                        "(source \"./env-scripts/not-by-wrap-name/backups/make.sh\" && main \"$(./envs.sh get name image ubuntu-iproute2-install)\")"
                     ]
                 }
             },
             "clean": [
-                "source \"./env-scripts/not-by-wrap-name/backups/clean.sh\" && main \"$(./envs.sh get name image ubuntu-iproute2-install)\""
+                "(source \"./env-scripts/not-by-wrap-name/backups/clean.sh\" && main \"$(./envs.sh get name image ubuntu-iproute2-install)\")"
             ]
         },
         "ubuntu-iptables-install": {
@@ -141,12 +141,12 @@
                 "context": "./dockers/ubuntu/iptables-install",
                 "run": {
                     "after": [
-                        "source \"./env-scripts/not-by-wrap-name/backups/make.sh\" && main \"$(./envs.sh get name image ubuntu-iptables-install)\""
+                        "(source \"./env-scripts/not-by-wrap-name/backups/make.sh\" && main \"$(./envs.sh get name image ubuntu-iptables-install)\")"
                     ]
                 }
             },
             "clean": [
-                "source \"./env-scripts/not-by-wrap-name/backups/clean.sh\" && main \"$(./envs.sh get name image ubuntu-iptables-install)\""
+                "(source \"./env-scripts/not-by-wrap-name/backups/clean.sh\" && main \"$(./envs.sh get name image ubuntu-iptables-install)\")"
             ]
         },
         "ubuntu-ca-certificates-install": {
@@ -160,12 +160,12 @@
                 "context": "./dockers/ubuntu/ca-certificates-install",
                 "run": {
                     "after": [
-                        "source \"./env-scripts/not-by-wrap-name/backups/make.sh\" && main \"$(./envs.sh get name image ubuntu-ca-certificates-install)\""
+                        "(source \"./env-scripts/not-by-wrap-name/backups/make.sh\" && main \"$(./envs.sh get name image ubuntu-ca-certificates-install)\")"
                     ]
                 }
             },
             "clean": [
-                "source \"./env-scripts/not-by-wrap-name/backups/clean.sh\" && main \"$(./envs.sh get name image ubuntu-ca-certificates-install)\""
+                "(source \"./env-scripts/not-by-wrap-name/backups/clean.sh\" && main \"$(./envs.sh get name image ubuntu-ca-certificates-install)\")"
             ]
         },
         "ubuntu-curl-install": {
@@ -179,12 +179,12 @@
                 "context": "./dockers/ubuntu/curl-install",
                 "run": {
                     "after": [
-                        "source \"./env-scripts/not-by-wrap-name/backups/make.sh\" && main \"$(./envs.sh get name image ubuntu-curl-install)\""
+                        "(source \"./env-scripts/not-by-wrap-name/backups/make.sh\" && main \"$(./envs.sh get name image ubuntu-curl-install)\")"
                     ]
                 }
             },
             "clean": [
-                "source \"./env-scripts/not-by-wrap-name/backups/clean.sh\" && main \"$(./envs.sh get name image ubuntu-curl-install)\""
+                "(source \"./env-scripts/not-by-wrap-name/backups/clean.sh\" && main \"$(./envs.sh get name image ubuntu-curl-install)\")"
             ]
         },
         "ubuntu-user-work": {
