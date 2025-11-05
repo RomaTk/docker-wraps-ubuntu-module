@@ -22,6 +22,7 @@
             "dockerfile": "./dockers/ubuntu/update-packages/Dockerfile",
             "build": {
                 "options": [
+                    "$(source \"./env-scripts/ubuntu/update-packages/create-unique-arg.sh\" && main \"$(./envs.sh get name image ubuntu-get-some-version)\" \"$(./envs.sh get name image ubuntu-with-latest-packages)\")",
                     "--build-arg BASED_ON=\"$(./envs.sh get name image ubuntu-get-some-version)\""
                 ],
                 "context": "./dockers/ubuntu/update-packages",
