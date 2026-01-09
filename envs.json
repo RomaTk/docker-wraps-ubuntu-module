@@ -188,6 +188,39 @@
                 "(source \"./env-scripts/not-by-wrap-name/backups/clean.sh\" && main \"$(./envs.sh get name image ubuntu-curl-install)\")"
             ]
         },
+        "ubuntu-locales-install": {
+            "basedOn": {
+                "name": "ubuntu-with-latest-packages",
+                "tag": "latest",
+                "precreate": true
+            },
+            "dockerfile": "./dockers/ubuntu/locales/install/Dockerfile",
+            "build": {
+                "context": "./dockers/ubuntu/locales/install",
+                "run": {
+                    "after": [
+                        "(source \"./env-scripts/not-by-wrap-name/backups/make.sh\" && main \"$(./envs.sh get name image ubuntu-locales-install)\")"
+                    ]
+                }
+            },
+            "clean": [
+                "(source \"./env-scripts/not-by-wrap-name/backups/clean.sh\" && main \"$(./envs.sh get name image ubuntu-locales-install)\")"
+            ]
+        },
+        "ubuntu-locales-gen": {
+            "basedOn": {
+                "name": "ubuntu-locales-install",
+                "tag": "latest",
+                "precreate": true
+            },
+            "dockerfile": "./dockers/ubuntu/locales/gen/Dockerfile",
+            "build": {
+                "context": "./dockers/ubuntu/locales/gen",
+                "options": [
+                    "--build-arg LOCALE=\"en_US.UTF-8\""
+                ]
+            }
+        },
         "ubuntu-user-work": {
             "basedOn": {
                 "name": "ubuntu-with-latest-packages",
